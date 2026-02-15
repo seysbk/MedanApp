@@ -1,0 +1,12 @@
+# Python / Django
+*.pyc
+__pycache__/
+medanapp-backend/venv/
+medanapp-backend/db.sqlite3
+.env
+
+# Node / React
+medanapp-frontend/node_modules/
+
+# OS / Misc
+.DS_Store
