@@ -6,20 +6,14 @@ class University(models.Model):
     short_name = models.CharField(max_length=50)
     city = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
-
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
 class Location(models.Model):
-    university = models.ForeignKey(
-        University,
-        on_delete=models.CASCADE,
-        related_name="locations"
-    )
+    university = models.ForeignKey(University, on_delete=models.CASCADE, related_name="locations")
     name = models.CharField(max_length=100)
-
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -29,19 +23,10 @@ class Location(models.Model):
         return f"{self.name} ({self.university.short_name})"
 
 class Hostel(models.Model):
-    PRICE_PERIOD_CHOICES = (
-        (1, "Per Semester"),
-        (2, "Per Academic Year"),
-    )
+    PRICE_PERIOD_CHOICES = ((1, "Per Semester"), (2, "Per Academic Year"),)
 
-    GENDER_POLICY_CHOICES = (
-        (1, "Male"),
-        (2, "Female"),
-        (3, "Mixed"),
-    )
-
-    university = models.ForeignKey(
-        University,
+    GENDER_POLICY_CHOICES = ((1, "Male"), (2, "Female"), (3, "Mixed"),)
+    university = models.ForeignKey(University,
         on_delete=models.CASCADE,
         related_name="hostels"
     )
@@ -73,7 +58,11 @@ class Hostel(models.Model):
     gender_policy = models.IntegerField(choices=GENDER_POLICY_CHOICES)
     is_verified = models.BooleanField(default=False)
 
-    minutes_to_campus = models.PositiveIntegerField(help_text="Estimated walking time to campus in minutes", null=True, blank=True)
+    minutes_to_campus = models.PositiveIntegerField(
+        help_text="Estimated walking time to campus in minutes",
+        null=True,
+        blank=True
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
 

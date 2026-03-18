@@ -27,4 +27,3 @@ ROLE_CHOICES = (
 )
 
 role = models.IntegerField(choices=ROLE_CHOICES, default=1)
-

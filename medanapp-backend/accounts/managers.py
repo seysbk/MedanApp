@@ -1,3 +1,6 @@
+#contains the the models for manager of hostels and superuser
+# django's default user is uused but other fields are added
+
 from django.contrib.auth.models import BaseUserManager
 
 
