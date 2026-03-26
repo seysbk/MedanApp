@@ -20,8 +20,9 @@ class LocationListView(generics.ListCreateAPIView):
         return Location.objects.filter(university_id=university_id)
 
 class HostelListView(generics.ListAPIView):
-    queryset = Hostel.objects.filter(is_verified=True)
+    queryset = Hostel.objects.filter(is_verified=True).order_by('-created_at')
     serializer_class = HostelSerializer
+    ordering = ['-created_at']
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
 

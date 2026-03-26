@@ -48,7 +48,7 @@ export default function HostelDetails({ hostel }) {
 
                         {data.room_types?.length > 0 ? (
                             data.room_types.map((room) => (
-                                <div key={room.id} className="room-card">
+                                <div key={room.id} className="room-card" style={{ marginBottom: "1rem" }}>
                                     <div className="room-info">
                                         <h4>{room.name}</h4>
                                         <p>{room.capacity} person(s)</p>

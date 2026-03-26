@@ -22,7 +22,7 @@ export default function HostelGrid({ hostels = [] }) {
           key={item.id}
           id={item.id}
           name={item.name}
-          coverImage={item.images?.[0]?.image_url || "https://images.unsplash.com/photo-1554995207-c18c203602cb"}
+          coverImage={item.images?.[0]?.image_url || "https://via.placeholder.com/400x260?text=No+Hostel+Image"}
           distance={item.minutes_to_campus || 0}
           isVerified={item.is_verified}
           type={item.gender_policy === 1 ? "Male" : item.gender_policy === 2 ? "Female" : "Mixed"}

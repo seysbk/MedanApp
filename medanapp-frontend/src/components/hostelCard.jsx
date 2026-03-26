@@ -45,7 +45,7 @@ export default function HostelCard({
             <span className="price-period">/year</span>
           </div>
 
-          <Link to={`/details/${id}`} className="action-btn">
+          <Link to={`/hostel/${id}`} className="action-btn">
             Details
           </Link>
         </div>

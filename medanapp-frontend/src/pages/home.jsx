@@ -18,7 +18,7 @@ export default function Home() {
           throw new Error(`Failed to load hostels: ${res.status} ${res.statusText}`);
         }
         const data = await res.json();
-        setHostels(Array.isArray(data) ? data : []);
+        setHostels(Array.isArray(data) ? data : data.results || []);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -43,7 +43,7 @@ export default function Home() {
       {!isLoading && !error && <HostelGrid hostels={hostels} />}
       {!isLoading && !error && hostels.length === 0 && (
         <p style={{ textAlign: "center", marginTop: "1rem" }}>
-          No hostels yet. Add one from admin or via hostel manager API.
+          Check back later.
         </p>
       )}
     </main>
